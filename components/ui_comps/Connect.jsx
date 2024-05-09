@@ -6,10 +6,10 @@ import { socials } from '@/lib/Socials'
 const Connect = () => {
 	return (
 		<section
-			id="interests"
+			id="contact"
 			className=' mx-auto w-full  flex max-h-screen flex-col items-center justify-center px-20"'
 		>
-			<Container type="main" title={'Interests'} subTitle={'And Niches'}>
+			<Container type="main" title={'Socials'} subTitle={'Place to Connect'}>
 				<ul className="space-y-6 w-full relative   ">
 					{socials.map((social, idx) => {
 						const index = idx + 1

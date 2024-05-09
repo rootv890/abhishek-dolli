@@ -66,7 +66,13 @@ const Navbar = () => {
 		setActiveItemId(item.id)
 		const element = document.getElementById(item.id)
 		if (element) {
-			element.scrollIntoView({ behavior: 'smooth' })
+			// Scroll to element plus 100px
+			window.scrollTo({
+				top: element.offsetTop - 100,
+				behavior: 'smooth'
+			})
+
+			// element.scrollIntoView({ behavior: 'smooth' })
 		}
 	}
 
