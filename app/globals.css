@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+iframe::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+}
+
+/* Hide scrollbar for IE, Edge */
+iframe {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
 @layer base {
 	:root {
 		--background: 0 0% 100%;
