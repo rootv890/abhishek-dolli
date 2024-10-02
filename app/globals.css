@@ -86,6 +86,10 @@ iframe {
 }
 
 @layer components {
+
+    .text-gradient {
+            @apply bg-gradient-to-tr  from-violet-600 via-violet-200 to-violet-900   bg-clip-text text-transparent;
+        }
 	.brand-gradient-linear {
 		/* Fallback: Set a background color. */
 		background-color: #705df2;
@@ -136,5 +140,5 @@ iframe {
 
 .shadowfilter {
 	filter: blur(20px);
-	
+
 }
