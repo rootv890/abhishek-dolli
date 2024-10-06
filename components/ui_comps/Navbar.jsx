@@ -1,12 +1,12 @@
 'use client';
 
-import Logo from '@/lib/Logo';
+import Logo from '../../lib/Logo';
 import Link from 'next/link';
 import { motion, motionValue, useScroll } from 'framer-motion';
 import React, { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
-import { container, item } from '@/lib/animation';
-import DrawerComponent from '@/lib/DrawerComponent';
+import { container, item } from '../../lib/animation';
+import DrawerComponent from '../../lib/DrawerComponent';
 
 const navItems = [
     { name: 'Home', link: '/', id: 'home' },

@@ -1,24 +1,18 @@
 'use client';
-import Plyr from '@rocketseat/react-plyr';
 import React, { useState } from 'react';
-import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
-import Image from 'next/image';
-import { menus } from '@/lib/projects';
 import { motion } from 'framer-motion';
 import Head from 'next/head'; // Import Head for adding <link> tag
-import VideoPlayer from '@/components/VideoPlayer';
+import VideoPlayer from '../components/VideoPlayer';
 import { cn } from './utils';
-import myprojects from '@/lib/myprojects.json';
-console.log( myprojects );
+import myprojects from './myprojects.json';
+
 export const HorizontalScroll = () =>
 {
     const [activeTab, setActiveTab] = useState( 'longForm' );
 
     return (
         <>
-            <Head>
-                <link rel="stylesheet" href="https://cdn.plyr.io/3.5.2/plyr.css" />
-            </Head>
+
             <div className="flex w-screen px-6 items-center justify-center rounded-2xl flex-col gap-6">
                 <div className=''>
                     <motion.ul
