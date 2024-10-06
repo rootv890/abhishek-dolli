@@ -1,15 +1,15 @@
 import React from 'react';
-import About from '@/components/ui_comps/About';
-import Collab from '@/components/ui_comps/Collab';
-import Connect from '@/components/ui_comps/Connect';
-import Footer from '@/components/ui_comps/Footer';
-import Hero from '@/components/ui_comps/Hero';
-import Interests from '@/components/ui_comps/Interests';
-import Projects from '@/components/ui_comps/Projects';
-
 
 import Divider from '@/lib/Divider';
-import Experience from '@/components/ui_comps/Experience';
+
+import Hero from '../components/ui_comps/Hero';
+import About from '../components/ui_comps/About';
+import Experience from '../components/ui_comps/Experience';
+import Interests from '../components/ui_comps/Interests';
+import Projects from '../components/ui_comps/Projects';
+import Connect from '../components/ui_comps/Connect';
+import Collab from '../components/ui_comps/Collab';
+import Footer from '../components/ui_comps/Footer';
 
 const Home = () =>
 {

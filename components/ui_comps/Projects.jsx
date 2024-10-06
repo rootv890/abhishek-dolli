@@ -1,4 +1,4 @@
-import HorizontalScroll from '@/lib/HorizontalScroll';
+import HorizontalScroll from '../../lib/HorizontalScroll';
 import React from 'react';
 
 const Projects = () =>

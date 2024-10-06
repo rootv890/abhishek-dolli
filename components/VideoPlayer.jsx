@@ -15,7 +15,7 @@ const VideoPlayer = ( { videoId, className } ) =>
                 options={{
                     volume: 0.1,
                     autoplay: false,
-                    controls: ["play-large", "current-time", "mute", "fullscreen", "pip", "progress"], // Customize controls
+                    controls: ["play-large", "current-time", "mute", "fullscreen",], // Customize controls
                 }}
                 source={{
                     type: "video",

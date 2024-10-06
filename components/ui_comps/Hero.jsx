@@ -1,10 +1,9 @@
 'use client';
-
 import React from 'react';
-import { RiScrollToBottomLine } from 'react-icons/ri';
 import Image from 'next/image';
 import { motion, stagger } from 'framer-motion';
-import { container, item } from '@/lib/animation';
+import { container, item } from '../../lib/animation';
+
 const Hero = () =>
 {
     return (
