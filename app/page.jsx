@@ -1,3 +1,4 @@
+import React from 'react';
 import About from '@/components/ui_comps/About';
 import Collab from '@/components/ui_comps/Collab';
 import Connect from '@/components/ui_comps/Connect';
@@ -5,8 +6,10 @@ import Footer from '@/components/ui_comps/Footer';
 import Hero from '@/components/ui_comps/Hero';
 import Interests from '@/components/ui_comps/Interests';
 import Projects from '@/components/ui_comps/Projects';
+
+
 import Divider from '@/lib/Divider';
-import React from 'react';
+import Experience from '@/components/ui_comps/Experience';
 
 const Home = () =>
 {
@@ -19,11 +22,14 @@ const Home = () =>
             <Divider className={'my-12'} />
             <Projects />
             <Divider className={'my-12'} />
+            <Experience />
+            <Divider className={'my-12'} />
             <Connect />
             <Divider className={'my-12'} />
             <Collab />
             <Divider className={'my-12'} />
             <Footer />
+
         </div>
     );
 };

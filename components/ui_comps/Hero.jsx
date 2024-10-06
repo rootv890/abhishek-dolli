@@ -22,9 +22,9 @@ const Hero = () =>
                 >
                     <motion.div
                         variants={item}
-                        className='  flex flex-col mx-auto items-center justify-center lg:text-[18vmax] md:text-[14rem] text-7xl ' >
-                        <h1 className="  text-balance  font-medium leading-[0.8] text-center ">ABHISHEK</h1>
-                        <h1 className="  text-balance  font-medium leading-[0.8] text-center "> DOLLI</h1>
+                        className='  flex flex-col mx-auto items-center justify-center lg:text-[18vmax] md:text-[12rem] text-7xl  relative' >
+                        <h1 className=" absolute grainy-text text-balance  font-medium leading-[0.8] text-center ">ABHISHEK</h1>
+                        <h1 className=" absolute grainy-text text-balance  font-medium leading-[0.8] text-center z-50 "> DOLLI</h1>
                     </motion.div>
 
                 </motion.div>
@@ -37,7 +37,7 @@ const Hero = () =>
                             alt="Hero"
                             width={560}
                             height={936}
-                            className=" absolute bottom-0 -z-10    object-center   "
+                            className=" absolute bottom-0 -z-10    object-center"
                         />
                         <Image
                             src="/hero.png"

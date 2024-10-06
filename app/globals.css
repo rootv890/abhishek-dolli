@@ -43,6 +43,10 @@ iframe {
 		--ring: 0 0% 3.9%;
 
 		--radius: 0.5rem;
+
+
+         --plyr-color-main: #705df2;
+         --plyr-control-radius: 3px;
 	}
 
 	.dark {
@@ -141,4 +145,46 @@ iframe {
 .shadowfilter {
 	filter: blur(20px);
 
+}
+
+
+@layer utilities{
+   .tab {
+    @apply hover:bg-brand-300 rounded-full   cursor-pointer transition-all px-3 py-1 ease-in-out select-none;
+   }
+}
+
+
+.plyr{
+    border-radius: 12px;
+}
+
+
+.grainy-text {
+    position: relative;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase; /* Optional */
+    letter-spacing: 2px;
+    text-shadow:
+        0px 0px 5px rgba(255, 255, 255, 0.6), /* Glow effect */
+        0px 0px 10px rgba(255, 255, 255, 0.4), /* Outer glow */
+        0px 0px 20px rgba(255, 255, 255, 0.2); /* Faint glow */
+    background: linear-gradient(180deg, rgba(255,255,255,1), rgba(255,255,255,0.8));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Overlay effect to add noise */
+.grainy-text::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://www.transparenttextures.com/patterns/asfalt-dark.png'); /* Link to a noise texture */
+    opacity: 1; /* Adjust opacity to make the noise effect subtle */
+    z-index: 1;
+    pointer-events: none;
 }
