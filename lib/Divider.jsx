@@ -1,11 +1,12 @@
-import React from 'react'
+import React from 'react';
 
-const Divider = ({ className }) => {
-	return (
-		<div className={`w-[512px] h-px  border-gradient  ${className} `}>
-			{/* Draw a Horizonta line */}
-		</div>
-	)
-}
+const Divider = ( { className } ) =>
+{
+    return (
+        <div className='w-full px-36 h-px my-28  items-center justify-centers'>
 
-export default Divider
+        </div>
+    );
+};
+
+export default Divider;

@@ -1,110 +1,104 @@
-'use client'
+'use client';
+import Plyr from '@rocketseat/react-plyr';
+import React, { useState } from 'react';
+import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
+import Image from 'next/image';
+import { menus } from '@/lib/projects';
+import { motion } from 'framer-motion';
+import Head from 'next/head'; // Import Head for adding <link> tag
+import VideoPlayer from '@/components/VideoPlayer';
+import { cn } from './utils';
+import myprojects from '@/lib/myprojects.json';
+console.log( myprojects );
+export const HorizontalScroll = () =>
+{
+    const [activeTab, setActiveTab] = useState( 'longForm' );
 
-import React, { useState } from 'react'
-import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area'
-import Image from 'next/image'
-import { menus } from '@/lib/projects'
-import { PlayIcon } from 'lucide-react'
-import { motion } from 'framer-motion'
-export const HorizontalScroll = () => {
-	const [activeTab, setActiveTab] = useState(0)
+    return (
+        <>
+            <Head>
+                <link rel="stylesheet" href="https://cdn.plyr.io/3.5.2/plyr.css" />
+            </Head>
+            <div className="flex w-screen px-6 items-center justify-center rounded-2xl flex-col gap-6">
+                <div className=''>
+                    <motion.ul
+                        initial={{ opacity: 0, x: -100 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{
+                            duration: 0.5,
+                            type: 'tween',
+                            damping: 10,
+                            stiffness: 100,
+                        }}
+                        className="flex items-center gap-2 border-[0.5px] border-zinc-500/50 justify-center bg-[#0A0A0A] rounded-full px-8 p-2"
+                    >
+                        {/* Tab Section */}
+                        <ul className='min-w-52 gap-6 rounded-full h-10 flex justify-center items-center'>
+                            <li onClick={() =>
+                            {
+                                setActiveTab( 'longForm' );
+                            }} className={cn( 'tab ',
+                                activeTab === 'longForm' && 'bg-brand-500 !px-4 !py-2' )}>Long Form</li>
+                            <li onClick={() =>
+                            {
+                                setActiveTab( 'shortForm' );
+                            }} className={cn( 'tab',
+                                activeTab === 'shortForm' && 'bg-brand-500 !px-4 !py-2' )}>Short Form</li>
+                            <li onClick={() =>
+                            {
+                                setActiveTab( 'aeComp' );
+                            }} className={cn( 'tab',
+                                activeTab === 'aeComp' && 'bg-brand-500 !px-4 !py-2' )}>AE Comps</li>
+                        </ul>
+                    </motion.ul >
+                </div >
+                <div className="w-full rounded-3xl">
+                    <div className="w-full px-6 md:px-12 py-4 rounded-2xl">
+                        <ul className="grid md:grid-cols-2 w-full place-items-center mx-auto px-12">
+                            {activeTab === 'longForm' && renderTab( 'longForm' )}
+                            {activeTab === 'shortForm' && renderTab( 'shortForm' )}
+                            {activeTab === 'aeComp' && renderTab( 'aeComp' )}
+                        </ul>
 
-	return (
-		<div className="flex w-full    items-center justify-center rounded-2xl flex-col gap-6">
-			<div>
-				<motion.ul
-					// Animate the menu while in view but once
+                    </div>
+                </div >
+            </div >
+        </>
+    );
+};
 
-					initial={{ opacity: 0, x: -100 }}
-					// animate={{ opacity: 1 }}
-					whileInView={{ opacity: 1, x: 0 }}
-					transition={{
-						duration: 0.5,
-						type: 'tween',
-						damping: 10,
-						stiffness: 100
-					}}
-					className="flex items-center   gap-2 border-[0.5px] border-zinc-500/50 justify-center bg-[#0A0A0A] rounded-full px-8 p-2"
-				>
-					{menus.map(menu => (
-						<li
-							className={` px-4 py-2 transition-all duration-100 ease-in-out cursor-pointer rounded-full
-							${activeTab === menu.index ? 'bg-brand-400' : ''}
-							`}
-							key={menu.name}
-							onClick={() => setActiveTab(menu.index)}
-						>
-							<div
-								className={` active:bg-brand-200 px-2  rounded-full`}
-								key={menu.index}
-							>
-								{menu.name}
-							</div>
-						</li>
-					))}
-				</motion.ul>
-			</div>
-			<div className="w-full  rounded-3xl">
-				<ScrollArea className="lg:max-w-7xl   w-screen px-12 whitespace-nowrap rounded-2xl ">
-					<div className="flex  w-max  space-x-4 p-4">
-						{menus[activeTab].works.map(work => {
-							return (
-								<figure
-									key={work.index}
-									className="group relative cursor-pointer  "
-								>
-									<>
-										{/* Play Button */}
-										<motion.a
-											initial={{ opacity: 0 }}
-											whileInView={{ opacity: 1, x: 0 }}
-											transition={{
-												duration: 0.5,
-												type: 'tween',
-												damping: 10,
-												stiffness: 100
-											}}
-											href={work.url}
-											target="_blank"
-										>
-											<div className="relative  ">
-												<Image
-													src={work.image}
-													alt={`Photo by ${work.name}`}
-													width={work.width}
-													height={work.height}
-													className={`grayscale object-center  group-hover:grayscale-0 transition-all duration-300 ease-in-out rounded-2xl    object-cover  ${
-														work.tag === 'thumbnail' || work.tag === 'others'
-															? 'lg:w-[540px]  lg:h-[320px]    sm:w-[320px] sm:h-[200px]  '
-															: 'lg:w-[540px] lg:h-[675px] sm:w-[320px] sm:h-[400px]	'
-													}`}
-												/>
+export default HorizontalScroll;
 
-												{work.video && (
-													<PlayIcon className="w-16 h-16  text-white bg-black/30 flex items-center justify-center group-hover:scale-125 transition-all p-3 rounded-full absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" />
-												)}
-											</div>
-										</motion.a>
-									</>
-									<figcaption className="pt-2">
-										<h4 className=" text-xl group-hover:text-white transition-all duration-300 ease-in-out  text-zinc-400 ">
-											{work.name}
-										</h4>
-										<p className="text-sm  text-zinc-400">
-											Simple Breif about the project
-										</p>
-									</figcaption>
-								</figure>
-							)
-						})}
-					</div>
-					<div className="hidden">
-						<ScrollBar orientation="horizontal" />
-					</div>
-				</ScrollArea>
-			</div>
-		</div>
-	)
+function extractYouTubeId ( url )
+{
+    const regex = /(?:youtu\.be\/|(?:www\.|m\.)?youtube\.com\/(?:watch\?v=|shorts\/|embed\/|v\/|.+\?v=|.+\/)?)([a-zA-Z0-9_-]{11})/;
+    const match = url.match( regex );
+    return match ? match[1] : null; // Return the ID or null if not found
 }
 
-export default HorizontalScroll
+function renderTab ( category )
+{
+    const videos = myprojects[category];
+
+    if ( !videos )
+    {
+        return <li>No videos available for this category.</li>;
+    }
+
+    return videos.map( ( video, index ) =>
+    {
+        // Check if it's the last item and if the number of items is odd
+        const isLastItem = index === videos.length - 1 && videos.length % 2 !== 0;
+        const gridClasses = isLastItem ? 'col-span-2' : 'col-span-1';
+
+        return (
+            <li
+                key={video.name}
+                className={`w-full max-w-4xl mx-4 mb-4 aspect-video flex justify-center flex-col items-start gap-2 rounded-2xl p-2 ${gridClasses}`}
+            >
+                <VideoPlayer className="w-full" videoId={extractYouTubeId( video.url )} />
+                <h2 className='text-xl'>{video.name}</h2>
+            </li>
+        );
+    } );
+}
